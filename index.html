@@ -1,1 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Grid // Tic Tac Toe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header>
+            <h1>Quantum Grid</h1>
+            <div id="status">Player 1's Turn (X)</div>
+        </header>
 
+        <!-- Dynamic Control Interface Panel -->
+        <div class="control-panel">
+            <select id="mode-select">
+                <option value="pvp">Local PvP (Human vs Human)</option>
+                <option value="easy">Matrix AI: Novice Mode</option>
+                <option value="medium">Matrix AI: Tactical Mode</option>
+                <option value="hard">Matrix AI: Unbeatable</option>
+            </select>
+            <button id="restart-btn">Reset Matrix</button>
+        </div>
+
+        <!-- The 3x3 Grid Matrix -->
+        <div id="gameboard"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

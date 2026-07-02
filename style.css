@@ -1,1 +1,139 @@
+:root {
+    --bg-main: #0b0f19;         /* Deep obsidian background */
+    --bg-card: #131c2e;         /* Sleek card navy */
+    --border-color: #22314d;    /* Crisp, low-contrast borders */
+    --accent-x: #10b981;        /* Emerald Green for X */
+    --accent-o: #38bdf8;        /* Sky Blue for O */
+    --text-main: #f8fafc;       /* Crisp white */
+    --text-muted: #94a3b8;      /* Elegant slate gray */
+}
 
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 40px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+header {
+    text-align: center;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    margin: 0 0 8px 0;
+}
+
+#status {
+    font-size: 1rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    min-height: 24px;
+}
+
+/* Control Row Configuration */
+.control-panel {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+}
+
+select, #restart-btn {
+    background: #0b0f19;
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+select {
+    flex-grow: 1;
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2394a3b8' viewBox='0 0 16 16'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: calc(100% - 14px) center;
+    padding-right: 40px;
+}
+
+select:hover, #restart-btn:hover {
+    border-color: #475569;
+    background-color: rgba(255, 255, 255, 0.01);
+}
+
+#restart-btn {
+    white-space: nowrap;
+    background: var(--accent-x);
+    color: #042f1a;
+    border: none;
+    font-weight: 600;
+}
+
+#restart-btn:hover {
+    background: #059669;
+}
+
+/* Mechanical Layout Grid Assembly */
+#gameboard {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 12px;
+}
+
+.cell {
+    background: #0b0f19;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    font-size: 2.5rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cell:hover {
+    border-color: #475569;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.cell.x-marker {
+    color: var(--accent-x);
+    text-shadow: 0 0 12px rgba(16, 185, 129, 0.3);
+}
+
+.cell.o-marker {
+    color: var(--accent-o);
+    text-shadow: 0 0 12px rgba(56, 189, 248, 0.3);
+}
+
+/* Fixes the invisible white-on-white dropdown glitch */
+select option {
+    background-color: #131c2e; /* Matches your sleek card navy */
+    color: var(--text-main);    /* Crisp white text */
+}
